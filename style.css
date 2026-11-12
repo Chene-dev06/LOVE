@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Pacifico&display=swap');
+
+:root {
+  font-family: 'Baloo 2', system-ui, sans-serif;
+  color: #653d55;
+  background: #fff0f5;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; min-height: 100vh; }
+button { font: inherit; }
+.app-shell { min-height: 100vh; }
+.screen {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 36px 18px 60px;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(255,255,255,.9) 0 5px, transparent 6px),
+    radial-gradient(circle at 86% 78%, rgba(255,255,255,.85) 0 7px, transparent 8px),
+    linear-gradient(135deg, #fff2f7 0%, #ffe1ed 48%, #fceafa 100%);
+}
+.screen::before, .screen::after {
+  content: "♡";
+  position: absolute;
+  color: rgba(236, 137, 177, .22);
+  font-size: clamp(130px, 22vw, 260px);
+  pointer-events: none;
+}
+.screen::before { top: -65px; left: -25px; transform: rotate(-18deg); }
+.screen::after { bottom: -105px; right: -15px; transform: rotate(16deg); }
+.question-card, .letter-card {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 490px);
+  text-align: center;
+  border: 2px solid rgba(255,255,255,.9);
+  border-radius: 34px;
+  background: rgba(255,255,255,.82);
+  box-shadow: 0 22px 65px rgba(177, 91, 135, .17), inset 0 0 0 1px rgba(244, 177, 204, .18);
+  backdrop-filter: blur(12px);
+}
+.question-card { padding: 36px 28px 34px; }
+.first-card { padding-top: 42px; }
+.tiny-label, .letter-top {
+  color: #d17b9f;
+  letter-spacing: 2.5px;
+  font-size: .72rem;
+  font-weight: 800;
+}
+.big-heart { font-size: 3.8rem; margin: 10px 0 0; animation: heartbeat 1.7s infinite; }
+h1 { font-size: clamp(2.5rem, 8vw, 3.7rem); line-height: 1.12; margin: 4px 0 5px; color: #bd648b; font-weight: 800; }
+.soft-text { color: #a47b91; font-size: 1.05rem; margin: 8px 0 20px; }
+.button-row { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin-top: 22px; }
+.btn {
+  border: 0;
+  border-radius: 999px;
+  padding: 12px 31px;
+  min-width: 116px;
+  font-weight: 800;
+  font-size: 1.08rem;
+  cursor: pointer;
+  transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+}
+.btn:hover { transform: translateY(-3px) scale(1.035); filter: saturate(1.08); }
+.btn:active { transform: scale(.97); }
+.btn-yes { color: white; background: linear-gradient(135deg, #f18db4, #d96d9b); box-shadow: 0 8px 18px rgba(217,109,155,.28); }
+.btn-no { color: #b76b8c; background: #fff0f5; border: 1px solid #f5c6d8; box-shadow: 0 7px 16px rgba(190,111,146,.1); }
+.bottom-note { position: absolute; z-index: 1; bottom: 18px; color: #c38ca6; font-size: .85rem; letter-spacing: .5px; }
+.sparkle { position: absolute; color: #e99abc; font-size: 2rem; z-index: 0; animation: float 4s ease-in-out infinite; }
+.sparkle-one { top: 15%; left: 13%; }
+.sparkle-two { bottom: 17%; right: 13%; animation-delay: 1s; }
+.reaction-area { margin: 8px auto 0; animation: pop .28s ease-out; }
+.cute-face { color: #bd6d91; font-size: clamp(2.3rem, 8vw, 3.2rem); line-height: 1.25; white-space: nowrap; }
+.reaction-message { color: #d05f91; font-weight: 800; font-size: 1.1rem; margin: 3px 0 0; animation: pop .25s ease-out; }
+.second-card { padding-top: 25px; }
+.avatar-wrap { min-height: 115px; position: relative; display: flex; align-items: center; justify-content: center; flex-direction: column; }
+.avatar-wrap .cute-face { font-size: clamp(3rem, 10vw, 4.2rem); }
+.angry-hands { font-size: 1.5rem; margin-top: -5px; animation: shake .35s infinite; }
+.fancy-question { font-family: 'Pacifico', cursive; font-size: clamp(1.9rem, 6vw, 2.55rem); font-weight: 400; margin: 9px 0 12px; color: #bd648b; }
+.second-card .reaction-message { min-height: 30px; }
+.letter-card { width: min(100%, 720px); padding: 30px clamp(20px, 5vw, 48px) 35px; margin: 18px 0; }
+.letter-icon { font-size: 2.8rem; margin: 10px 0 0; }
+.letter-card h1 { font-family: 'Pacifico', cursive; font-size: clamp(2rem, 6vw, 2.8rem); font-weight: 400; margin: 4px 0 20px; }
+.letter-body { white-space: pre-line; text-align: left; color: #76536a; font-size: clamp(.98rem, 2.5vw, 1.12rem); line-height: 1.85; }
+.letter-signoff { font-family: 'Pacifico', cursive; color: #c56f95; font-size: 1.3rem; margin: 22px 0 18px; }
+.surprise-btn { color: white; background: linear-gradient(135deg, #ed8db4, #d66b9a); box-shadow: 0 9px 22px rgba(217,109,155,.3); padding-inline: 30px; }
+.final-screen { align-items: flex-start; }
+.kiss-layer { position: fixed; inset: 0; z-index: 5; pointer-events: none; overflow: hidden; }
+.floating-kiss { position: absolute; bottom: -60px; animation-name: kiss-float; animation-timing-function: ease-in; animation-fill-mode: forwards; }
+@keyframes heartbeat { 0%, 100% { transform: scale(1); } 12% { transform: scale(1.12); } 24% { transform: scale(1); } }
+@keyframes float { 0%, 100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-15px) rotate(10deg); } }
+@keyframes pop { from { opacity: 0; transform: scale(.88) translateY(6px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+@keyframes shake { 0%, 100% { transform: rotate(-8deg); } 50% { transform: rotate(8deg); } }
+@keyframes kiss-float { 0% { transform: translateY(0) rotate(-12deg); opacity: 0; } 10% { opacity: 1; } 100% { transform: translateY(-115vh) rotate(24deg); opacity: 0; } }
+@media (max-width: 480px) {
+  .question-card { padding: 30px 18px; border-radius: 27px; }
+  .letter-card { border-radius: 26px; }
+  .btn { min-width: 105px; padding: 11px 24px; }
+  .sparkle-one { left: 5%; top: 9%; }
+  .sparkle-two { right: 5%; bottom: 10%; }
+}
